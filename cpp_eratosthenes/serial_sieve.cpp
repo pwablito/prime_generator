@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
     bool* marked = (bool*)calloc(space, sizeof(bool));
     for (unsigned long i = 2; i < space; i++) {
         if (!marked[i]) {
-            printf("%llu\n", i);
+            printf("%lu\n", i);
             for (unsigned long x = i * 2; x < space; x += i) {
                 marked[x] = true;
             }
