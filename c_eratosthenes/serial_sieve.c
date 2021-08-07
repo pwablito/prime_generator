@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 int main(int argc, char** argv) {
     if (argc != 2) {
@@ -8,6 +9,7 @@ int main(int argc, char** argv) {
         return 1;
     }
     unsigned long space = (unsigned long)strtol(argv[1], NULL, 10);
+    unsigned long sqrt_space = (unsigned long)sqrt(space);
     bool* marked = (bool*)calloc(space, sizeof(bool));
     for (unsigned long i = 2; i < space / 2; i++) {
         if (!marked[i]) {
