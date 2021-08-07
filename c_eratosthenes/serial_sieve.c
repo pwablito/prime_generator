@@ -9,12 +9,16 @@ int main(int argc, char** argv) {
     }
     unsigned long space = (unsigned long)strtol(argv[1], NULL, 10);
     bool* marked = (bool*)calloc(space, sizeof(bool));
-    for (unsigned long i = 2; i < space; i++) {
+    for (unsigned long i = 2; i < space / 2; i++) {
         if (!marked[i]) {
-            printf("%lu\n", i);
             for (unsigned long x = i * 2; x < space; x += i) {
                 marked[x] = true;
             }
+        }
+    }
+    for (unsigned long i = 2; i < space; i++) {
+        if (!marked[i]) {
+            printf("%lu\n", i);
         }
     }
     return 0;
